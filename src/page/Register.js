@@ -11,8 +11,8 @@ const Wrapper = styled.div`
 `;
 
 const SubmitForm = styled.form`
-  width: 45vw;
-  height: 50vh;
+  width: 30vw;
+  height: 58vh;
   background-color: white;
   padding-top: 10vh;
   border-radius: 50px;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+
 const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const SubmitForm = styled.form`
-  width: 45vw;
+  width: 30vw;
   height: 50vh;
   background-color: white;
   padding-top: 10vh;
