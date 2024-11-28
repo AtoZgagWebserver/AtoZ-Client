@@ -82,7 +82,10 @@ const Home = () => {
         star
       </Rank>
       <Logout
-        onClick={() => navigate("/login")}
+        onClick={() => {
+          navigate("/login");
+          localStorage.removeItem("isAuthenticated");
+        }}
         className="material-symbols-outlined"
       >
         logout
@@ -90,7 +93,13 @@ const Home = () => {
       <Container>
         <Context>
           <img src={image} />
-          <p onClick={() => navigate("start")}>시작하기</p>
+          <p
+            onClick={() => {
+              navigate("quiz");
+            }}
+          >
+            시작하기
+          </p>
           <span>60초 동안 최대한 많은 문제를 풀어보세요!</span>
         </Context>
       </Container>

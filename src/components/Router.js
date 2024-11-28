@@ -3,6 +3,8 @@ import PrivateRoute from "./auth/PrivateRoute";
 import Root from "./Root";
 import Home from "../page/Home";
 import Login from "../page/Login";
+import Quiz from "../page/Quiz";
+import Rank from "../page/Rank";
 import Register from "../page/Register";
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "rank",
+        element: <PrivateRoute component={<Rank />} />,
+      },
+      {
+        path: "quiz",
+        element: <PrivateRoute component={<Quiz />} />,
       },
     ],
   },
