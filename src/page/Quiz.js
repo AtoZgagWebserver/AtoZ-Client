@@ -112,6 +112,12 @@ const Quiz = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   const currentQuestion = quizzes[currentQuestionIndex];
 
   return (
@@ -137,6 +143,7 @@ const Quiz = () => {
                 type="text"
                 value={userAnswers[currentQuestionIndex] || ""}
                 onChange={(e) => handleAnswerChange(e.target.value)}
+                onKeyPress={handleKeyPress}
               />
               <br />
               <SubmitBtn onClick={handleSubmit}>제출</SubmitBtn>

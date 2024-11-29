@@ -39,12 +39,39 @@ const RetryBtn = styled.button`
   font-size: 20px;
 `;
 
+const Home = styled.span`
+  position: absolute;
+  font-size: 30px;
+  top: 20px;
+  right: 65px;
+  cursor: pointer;
+`;
+const Logout = styled.span`
+  position: absolute;
+  font-size: 30px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+`;
+
 const Score = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { score } = location.state || { score: 0 };
   return (
     <Wrapper>
+      <Home onClick={() => navigate("/")} className="material-symbols-outlined">
+        home
+      </Home>
+      <Logout
+        onClick={() => {
+          navigate("/login");
+          localStorage.removeItem("isAuthenticated");
+        }}
+        className="material-symbols-outlined"
+      >
+        logout
+      </Logout>
       <Container>
         <div style={{ width: "100%" }}>
           <ScoreTitle>퀴즈 완료! 당신의 점수는: {score}점</ScoreTitle>
