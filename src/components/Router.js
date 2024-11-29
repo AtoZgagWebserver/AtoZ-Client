@@ -5,6 +5,7 @@ import Home from "../page/Home";
 import Login from "../page/Login";
 import Quiz from "../page/Quiz";
 import Rank from "../page/Rank";
+import Score from "../page/Score";
 import Register from "../page/Register";
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "quiz",
         element: <PrivateRoute component={<Quiz />} />,
+      },
+      {
+        path: "score",
+        element: <PrivateRoute component={<Score />} />,
       },
     ],
   },

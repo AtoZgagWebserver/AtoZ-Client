@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
@@ -58,6 +61,7 @@ const Home = styled.span`
   right: 65px;
   cursor: pointer;
 `;
+
 const Logout = styled.span`
   position: absolute;
   font-size: 30px;
@@ -65,8 +69,51 @@ const Logout = styled.span`
   right: 20px;
   cursor: pointer;
 `;
+
 const Quiz = () => {
   const navigate = useNavigate();
+  const [quizzes, setQuizzes] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userAnswers, setUserAnswers] = useState({});
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    const fetchQuizzes = async () => {
+      try {
+        const response = await axios.get("http://localhost:10612/quiz");
+        setQuizzes(response.data);
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching quizzes:", error);
+      }
+    };
+    fetchQuizzes();
+  }, []);
+
+  const handleAnswerChange = (value) => {
+    setUserAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [currentQuestionIndex]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    const currentQuestion = quizzes[currentQuestionIndex];
+    const userAnswer = userAnswers[currentQuestionIndex];
+
+    if (userAnswer === currentQuestion.answer) {
+      setScore((prevScore) => prevScore + 1);
+    }
+
+    if (currentQuestionIndex < quizzes.length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    } else {
+      navigate("/score", { state: { score } });
+    }
+  };
+
+  const currentQuestion = quizzes[currentQuestionIndex];
+
   return (
     <Wrapper>
       <Home onClick={() => navigate("/")} className="material-symbols-outlined">
@@ -83,10 +130,20 @@ const Quiz = () => {
       </Logout>
       <Container>
         <div style={{ width: "100%" }}>
-          <QuizTitle>인도는 몇시일까요?</QuizTitle>
-          <AnswerInput />
-          <br />
-          <SubmitBtn>제출</SubmitBtn>
+          {currentQuestion ? (
+            <>
+              <QuizTitle>{currentQuestion.question}</QuizTitle>
+              <AnswerInput
+                type="text"
+                value={userAnswers[currentQuestionIndex] || ""}
+                onChange={(e) => handleAnswerChange(e.target.value)}
+              />
+              <br />
+              <SubmitBtn onClick={handleSubmit}>제출</SubmitBtn>
+            </>
+          ) : (
+            <p>Loading questions...</p>
+          )}
         </div>
       </Container>
     </Wrapper>
