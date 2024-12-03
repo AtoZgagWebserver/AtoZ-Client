@@ -17,14 +17,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute component={<Home />} />,
       },
       {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-      {
         path: "rank",
         element: <PrivateRoute component={<Rank />} />,
       },

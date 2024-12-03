@@ -88,7 +88,7 @@ const Home = styled.span`
   position: absolute;
   font-size: 30px;
   top: 20px;
-  left: 20px;
+  right: 20px;
   cursor: pointer;
   color: white;
 `;
@@ -131,15 +131,6 @@ const Score = () => {
       <Home onClick={() => navigate("/")} className="material-symbols-outlined">
         home
       </Home>
-      <Logout
-        onClick={() => {
-          navigate("/login");
-          localStorage.removeItem("isAuthenticated");
-        }}
-        className="material-symbols-outlined"
-      >
-        logout
-      </Logout>
       <Container>
         <div style={{ width: "100%", textAlign: "center" }}>
           <ScoreTitle>퀴즈 완료! 당신의 점수는: {score}점</ScoreTitle>

@@ -72,7 +72,7 @@ const Rank = styled.span`
   position: absolute;
   font-size: 30px;
   top: 20px;
-  right: 65px;
+  right: 20px;
   cursor: pointer;
   color: white;
   transition: color 0.3s;
@@ -103,15 +103,6 @@ const Home = () => {
       <Rank onClick={() => navigate("/rank")} className="material-symbols-outlined">
         star
       </Rank>
-      <Logout
-        onClick={() => {
-          navigate("/login");
-          localStorage.removeItem("isAuthenticated");
-        }}
-        className="material-symbols-outlined"
-      >
-        logout
-      </Logout>
       <Container>
         <Context>
           <img src={image} alt="Home" />

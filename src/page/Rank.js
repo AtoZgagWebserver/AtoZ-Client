@@ -30,7 +30,7 @@ const Home = styled.span`
   position: absolute;
   font-size: 30px;
   top: 20px;
-  left: 30px;
+  right: 20px;
   color: white;
   cursor: pointer;
   transition: color 0.3s;
@@ -130,15 +130,6 @@ const Rank = () => {
       <Home onClick={() => navigate("/")} className="material-symbols-outlined">
         home
       </Home>
-      <Logout
-        onClick={() => {
-          navigate("/login");
-          localStorage.removeItem("isAuthenticated");
-        }}
-        className="material-symbols-outlined"
-      >
-        logout
-      </Logout>
       <Container>
         <RankList>
           {scores.map((score, index) => (

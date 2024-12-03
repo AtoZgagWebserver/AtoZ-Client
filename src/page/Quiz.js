@@ -75,7 +75,7 @@ const Home = styled.span`
   position: absolute;
   font-size: 30px;
   top: 20px;
-  right: 65px;
+  right: 20px;
   cursor: pointer;
   color: white;
   transition: color 0.3s;
@@ -154,15 +154,6 @@ const Quiz = () => {
       <Home onClick={() => navigate("/")} className="material-symbols-outlined">
         home
       </Home>
-      <Logout
-        onClick={() => {
-          navigate("/login");
-          localStorage.removeItem("isAuthenticated");
-        }}
-        className="material-symbols-outlined"
-      >
-        logout
-      </Logout>
       <Container>
         <div style={{ width: "100%" }}>
           {currentQuestion ? (
