@@ -42,7 +42,7 @@ const Input = styled.input`
   border-radius: 20px;
   outline: none;
   transition: border-color 0.3s;
-  
+
   &:focus {
     border-color: #8c7ae6;
   }
@@ -60,7 +60,7 @@ const SubmitBtn = styled.button`
   font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-right:20px;
+  margin-right: 20px;
   &:hover {
     background-color: #2d9e1e;
   }
@@ -78,7 +78,7 @@ const RetryBtn = styled.button`
   font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
-  
+
   &:hover {
     background-color: #6f6cfc;
   }
@@ -118,6 +118,7 @@ const Score = () => {
         nickname,
         score,
       });
+      alert("제출 완료!");
       console.log("점수가 성공적으로 제출되었습니다:", response.data);
     } catch (error) {
       console.error("점수 제출 중 오류 발생:", error);
