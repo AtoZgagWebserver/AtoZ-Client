@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #dcdde1;
+  background: linear-gradient(to bottom, #ff7e5f, #feb47b); 
 `;
 
 const Container = styled.div`
@@ -20,25 +20,35 @@ const Container = styled.div`
   justify-content: center;
   width: 80vw;
   height: 70vh;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+  padding: 20px;
 `;
 
 const QuizTitle = styled.h1`
   width: 100%;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 36px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  color: #2d3436;
 `;
 
 const AnswerInput = styled.input`
   margin-left: 30%;
   width: 40%;
-  height: 60px;
-  border: 1px solid black;
+  height: 50px;
+  border: 1px solid #8c7ae6;
   border-radius: 30px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
+  outline: none;
+  transition: border 0.3s, transform 0.3s;
+
+  &:focus {
+    border-color: #6c5ce7;
+    transform: translateY(-2px);
+  }
 `;
 
 const SubmitBtn = styled.button`
@@ -52,6 +62,13 @@ const SubmitBtn = styled.button`
   color: white;
   font-weight: bold;
   font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: #6c5ce7;
+    transform: translateY(-5px);
+  }
 `;
 
 const Home = styled.span`
@@ -60,6 +77,12 @@ const Home = styled.span`
   top: 20px;
   right: 65px;
   cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #f39c12;
+  }
 `;
 
 const Logout = styled.span`
@@ -68,6 +91,12 @@ const Logout = styled.span`
   top: 20px;
   right: 20px;
   cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #e74c3c;
+  }
 `;
 
 const Quiz = () => {
